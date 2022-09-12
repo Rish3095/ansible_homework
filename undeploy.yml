@@ -1,0 +1,5 @@
+- hosts: all
+  tasks:
+    - name: uninstalling apache package
+      apt: name=apache2 state=absent update_cache=yes
+      become: yes
