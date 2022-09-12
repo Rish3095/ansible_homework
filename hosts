@@ -1,0 +1,3 @@
+[all]
+172.31.1.209 ansible_ssh_user=ubuntu host_name=apache1 id="1"
+172.31.0.8 ansible_ssh_user=ubuntu host_name=apache2 id="2"
