@@ -1,0 +1,19 @@
+- name: Ansible Server Deployment
+  hosts: all
+  tasks:
+    - name: installing apache2 packege
+      apt: name=apache2 update_cache=yes state=latest
+      become: yes
+    - name: enabled mod rewrite
+      apache2_module: name=rewrite state=present
+      become: yes
+      notify:
+        - restart apache2
+    - name: copying index.html file
+      ansible.builtin.template:
+        src: index.html
+        owner: ubuntu
+        dest: /var/www/html/index.html
+        mode: '0644'
+        group: ubuntu
+      become: yes
